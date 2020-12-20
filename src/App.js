@@ -3,8 +3,8 @@ import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Navbar, Nav, Form, FormControl, Button}from 'react-bootstrap';
-import { Header } from "./components/header";
-import { Footer } from "./components/footer";
+import { Add } from "./components/add";
+import { View } from "./components/view";
 import { Content } from "./components/content";
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
@@ -41,8 +41,8 @@ class App extends Component {
         <br></br>
         <Switch>
           <Route path='/' component={Content} exact/>
-          <Route path='/view' component={Header} exact/>
-          <Route path='/remove' component={Footer} exact/>
+          <Route path='/view' component={View} exact/>
+          <Route path='/add' component={Add} exact/>
         </Switch>
 
       </div>
@@ -61,4 +61,7 @@ Added a navbar with search bar and logo
 
 Installed Router Dom and added switch & route
 Date: 20/12/20 */
+
+/*Added read and creat components known as view and add
+Date: 21/12/20*/
 <img src={logo} className="App-logo" alt="logo" />
