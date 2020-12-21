@@ -8,15 +8,20 @@ export class TeamItem extends React.Component {
     return (
       <div>
           <center>
-        <Card style={{ width: "30rem" }}>
-          <Card.Img variant="top" src={this.props.team.url} />
+            <row>
+        <Card style={{ width: "20rem" }}>
+          <Card.Img variant="top" src={this.props.team.strTeamBadge} />
           <Card.Body>
-            <Card.Title>{this.props.team.name}</Card.Title>
+            <Card.Title>{this.props.team.strTeam}</Card.Title>
           </Card.Body>
           <ListGroup className="list-group-flush">
-            <ListGroupItem>{this.props.team.nationality}</ListGroupItem>
+            <ListGroupItem>{this.props.team.strCountry}</ListGroupItem>
+            <ListGroupItem>{this.props.team.intFormedYear}</ListGroupItem>
           </ListGroup>
-        </Card>
+        </Card></row>
+        
+      
+
         <br></br></center>
       </div>
     );
