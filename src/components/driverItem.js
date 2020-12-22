@@ -2,8 +2,26 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
+import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 export class DriverItem extends React.Component {
+
+  constructor(){
+    super();
+
+    this.DeleteDriver = this.DeleteDriver.bind(this);
+  }
+
+  DeleteDriver(d){
+    d.preventDefault();
+    console.log("Delete: "+this.props.driver._id);
+
+    axios.delete("http://localhost:4000/api/drivers/"+this.props.driver._id)
+    .then()
+    .catch();
+  }
+
   render() {
     return (
       <div>
@@ -18,6 +36,7 @@ export class DriverItem extends React.Component {
           <ListGroupItem>{this.props.driver.team}</ListGroupItem>
             <ListGroupItem>{this.props.driver.dob}</ListGroupItem>
           </ListGroup>
+          <Button variant="danger" onClick={this.DeleteDriver}>Delete</Button>
         </Card></row>
         
       
@@ -28,4 +47,8 @@ export class DriverItem extends React.Component {
   }
 }
 /* created DriverItem class. This class shows the info taken from the database in MongoDB and then
-they appear in a stylish bootstrap card. */
+they appear in a stylish bootstrap card. 
+Date 21/12/20
+
+Added delete button to page
+Date 22/12/20*/

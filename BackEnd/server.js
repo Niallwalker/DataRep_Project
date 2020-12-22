@@ -1,12 +1,12 @@
 const express = require("express");
-const app = express();
+const f1 = express();
 const port = 4000;
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-app.use(cors());
-app.use(function (req, res, next) {
+f1.use(cors());
+f1.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   res.header(
@@ -16,9 +16,9 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use(bodyParser.urlencoded({ extended: false }));
+f1.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(bodyParser.json());
+f1.use(bodyParser.json());
 
 const myConnection =
   "mongodb+srv://admin:admin@cluster0.gugut.mongodb.net/f12020?retryWrites=true&w=majority";
@@ -43,19 +43,19 @@ var driverSchema = new Schema({
 
 var driverModel = mongoose.model("Drivers", driverSchema);
 
-app.get("/api/teams", (req, res) => {
+f1.get("/api/teams", (req, res) => {
   F1Model.find((err, data) => {
     res.json(data);
   });
 });
 
-app.get("/api/drivers", (req, res) => {
+f1.get("/api/drivers", (req, res) => {
   driverModel.find((err, data) => {
     res.json(data);
   });
 });
 
-app.post('/api/drivers', (req, res)=>{
+f1.post('/api/drivers', (req, res)=>{
   console.log('Driver Registered!');
   console.log(req.body.fullname);
   console.log(req.body.dob);
@@ -72,7 +72,7 @@ app.post('/api/drivers', (req, res)=>{
   res.send('driver added')
 });
 
-app.get("/api/teams/:id", (req, res) => {
+f1.get("/api/teams/:id", (req, res) => {
   console.log(req.params.id);
 
   F1Model.findById(req.params.id, (error, data) => {
@@ -80,7 +80,7 @@ app.get("/api/teams/:id", (req, res) => {
   });
 });
 
-app.get("/api/drivers/:id", (req, res) => {
+f1.get("/api/drivers/:id", (req, res) => {
   console.log(req.params.id);
 
   driverModel.findById(req.params.id, (error, data) => {
@@ -88,7 +88,24 @@ app.get("/api/drivers/:id", (req, res) => {
   });
 });
 
-app.post("/api/teams", (req, res) => {
+f1.delete('/api/teams/:id',(req,res)=>{
+  console.log("Delete Team: "+req.params.id);
+
+  F1Model.findByIdAndDelete(req.params.id,(error, data)=>{
+    res.send(data);
+  })
+})
+
+f1.delete('/api/drivers/:id',(req,res)=>{
+  console.log("Delete Driver: "+req.params.id);
+
+  driverModel.findByIdAndDelete(req.params.id,(error, data)=>{
+    res.send(data);
+  })
+})
+
+
+f1.post("/api/teams", (req, res) => {
   console.log("Team Registered!");
   console.log(req.body.name);
   console.log(req.body.year);
@@ -100,10 +117,10 @@ app.post("/api/teams", (req, res) => {
     logo: req.body.logo,
   });
 
-  res.send("team added");
+  res.send("Team added");
 });
 
-app.listen(port, () => {
+f1.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
 
@@ -111,5 +128,8 @@ app.listen(port, () => {
 this file lisitens on localhost 4000 and it shares information down to localhost 3000
 added mongodDB connection to page and added add driver functions so that now on MongoDB 
 And in the view teams and drivers pages, the added teams and drivers will appear
-this file lositens on localhost 4000 and it shares information down to localhost 3000 */
+this file lositens on localhost 4000 and it shares information down to localhost 3000 
+
+Added delete components for drivers and teams
+Date 22/12/20*/
 
