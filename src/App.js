@@ -8,6 +8,8 @@ import { View } from "./components/view";
 import { Content } from "./components/content";
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { AddDriver } from "./components/addDriver";
+import { ViewDrivers } from "./components/viewDrivers";
 
 class App extends Component {
   render() {
@@ -27,8 +29,10 @@ class App extends Component {
     </Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/view">View</Nav.Link>
-            <Nav.Link href="/add">Add</Nav.Link>
+            <Nav.Link href="/view">View Teams</Nav.Link>
+            <Nav.Link href="/viewDrivers">View Drivers</Nav.Link>
+            <Nav.Link href="/add">Add Team</Nav.Link>
+            <Nav.Link href="/addDriver">Add Driver</Nav.Link>
             <Nav.Link href="/update">Update</Nav.Link>
             <Nav.Link href="/remove">Remove</Nav.Link>
           </Nav>
@@ -42,7 +46,9 @@ class App extends Component {
         <Switch>
           <Route path='/' component={Content} exact/>
           <Route path='/view' component={View} exact/>
+          <Route path='/viewDrivers' component={ViewDrivers} exact/>
           <Route path='/add' component={Add} exact/>
+          <Route path='/addDriver' component={AddDriver} exact/>
         </Switch>
 
       </div>
@@ -64,4 +70,7 @@ Date: 20/12/20 */
 
 /*Added read and creat components known as view and add
 Date: 21/12/20*/
+
+/*Added add driver and view drivers to the navbar and added their appropriate paths.  
+Date: 22/12/20*/
 <img src={logo} className="App-logo" alt="logo" />

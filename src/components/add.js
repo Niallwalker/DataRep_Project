@@ -101,4 +101,7 @@ export class Add extends React.Component {
 /* created add class to show of add class in app
 created components folder and placed add file in it 
 Date 21/12/10
-added a form from reactjs and constructor. Here users will be able to create teams and add them to the DB*/
+added a form from reactjs and constructor. Here users will be able to create teams and add them to the DB
+
+Info now appears in terminal and in an array called f1 on MongoDB
+Date: 22/12/20*/
