@@ -39,9 +39,11 @@ ReloadTeams(){
   render() {
     return (
       <div>
+        <center>
+        <div class="title">
         <h1>Teams</h1>
         <Teams f1Teams={this.state.teams} ReloadTeams={this.ReloadTeams}></Teams>
-      </div>
+      </div></center></div>
     );
   }
 }

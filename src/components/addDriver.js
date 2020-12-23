@@ -67,6 +67,10 @@ export class AddDriver extends React.Component {
   
     render() {
       return (
+        <center>
+          <div class="formStyle">
+        <div class="title">
+          <h1>Add Driver</h1>
         <div className="App">
           <form onSubmit={this.onSubmit}>
             <div className="form-group">
@@ -75,7 +79,7 @@ export class AddDriver extends React.Component {
                 type="text"
                 className="form-control"
                 value={this.state.strName}
-                onChange={this.onChangeName}
+                onChange={this.onChangeName} placeholder="What is their name?"
               ></input>
             </div>
             <div className="form-group">
@@ -84,7 +88,7 @@ export class AddDriver extends React.Component {
                 type="text"
                 className="form-control"
                 value={this.state.strTeam}
-                onChange={this.onChangeTeam}
+                onChange={this.onChangeTeam} placeholder="Why do they race for?"
               ></input>
             </div>
             <div className="form-group">
@@ -93,7 +97,7 @@ export class AddDriver extends React.Component {
                 type="text"
                 className="form-control"
                 value={this.state.intDOB}
-                onChange={this.onChangeDob}
+                onChange={this.onChangeDob} placeholder="When were the born?"
               ></input>
             </div>
             <div className="form-group">
@@ -102,7 +106,7 @@ export class AddDriver extends React.Component {
                 type="text"
                 className="form-control"
                 value={this.state.strImage}
-                onChange={this.onChangeImage}
+                onChange={this.onChangeImage} placeholder="Why don't you add a picture of their beautiful face"
               ></textarea>
             </div>
             <div className="form-group">
@@ -114,6 +118,9 @@ export class AddDriver extends React.Component {
             </div>
           </form>
         </div>
+        </div>
+        </div>
+        </center>
       );
     }
   }

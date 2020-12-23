@@ -3,6 +3,8 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
@@ -27,10 +29,10 @@ export class DriverItem extends React.Component {
 
   render() {
     return (
-      <div>
-          <center>
+    
+        <Container>
             <row>
-        <Card style={{ width: "20rem" }}>
+            <Col><Card style={{ width: "20rem" }}>
           <Card.Img variant="top" src={this.props.driver.image} />
           <Card.Body>
             <Card.Title>{this.props.driver.fullname}</Card.Title>
@@ -41,10 +43,10 @@ export class DriverItem extends React.Component {
           </ListGroup>
           <Link to={"/updateDriver/"+ this.props.driver._id} className="btn btn-warning">Update</Link>
           <Button variant="danger" onClick={this.DeleteDriver}>Delete</Button>
-        </Card></row>
-        
-        <br></br></center>
-      </div>
+        </Card></Col>
+        <br></br>
+        </row>
+       </Container>  
     );
   }
 }

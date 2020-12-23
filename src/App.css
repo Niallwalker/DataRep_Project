@@ -13,6 +13,10 @@
   }
 }
 
+.title{
+  font-family: Formula1, serif;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -27,6 +31,25 @@
 .App-link {
   color: #61dafb;
 }
+
+.textbg{
+  background-color: #282c34;
+  border: 2px solid #282c34;
+  border-radius: 25px;
+  color: white;
+  opacity: 90%;
+}
+
+.carobg{
+  border: 10px solid #282c34;
+  border-radius: 5px;
+  width: 70%;
+}
+
+.formStyle{
+  width: 70%;
+}
+
 
 @keyframes App-logo-spin {
   from {

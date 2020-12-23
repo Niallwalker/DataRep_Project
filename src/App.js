@@ -17,6 +17,7 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <div class="title">
       <div className="App">
         <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="/">
@@ -41,7 +42,7 @@ class App extends Component {
             <Button variant="outline-danger">Search</Button>
           </Form>
         </Navbar>
-
+        </div>
         <br></br>
         <Switch>
           <Route path='/' component={Content} exact/>

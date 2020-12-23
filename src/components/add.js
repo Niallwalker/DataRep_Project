@@ -57,6 +57,10 @@ export class Add extends React.Component {
 
   render() {
     return (
+      <center>
+        <div class="formStyle">
+      <div class="title">
+        <h1>Add Team</h1>
       <div className="App">
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
@@ -65,7 +69,7 @@ export class Add extends React.Component {
               type="text"
               className="form-control"
               value={this.state.strTeam}
-              onChange={this.onChangeTeam}
+              onChange={this.onChangeTeam} placeholder="What the team name?"
             ></input>
           </div>
           <div className="form-group">
@@ -74,7 +78,7 @@ export class Add extends React.Component {
               type="text"
               className="form-control"
               value={this.state.intFormedYear}
-              onChange={this.onChangeYear}
+              onChange={this.onChangeYear} placeholder="When was it formed"
             ></input>
           </div>
           <div className="form-group">
@@ -83,7 +87,7 @@ export class Add extends React.Component {
               type="text"
               className="form-control"
               value={this.state.strTeamBadge}
-              onChange={this.onChangeLogo}
+              onChange={this.onChangeLogo} placeholder="What is their logo?"
             ></textarea>
           </div>
           <div className="form-group">
@@ -95,6 +99,9 @@ export class Add extends React.Component {
           </div>
         </form>
       </div>
+      </div>
+      </div>
+      </center>
     );
   }
 }

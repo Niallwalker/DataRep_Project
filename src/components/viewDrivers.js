@@ -37,9 +37,11 @@ export class ViewDrivers extends React.Component {
   render() {
     return (
       <div>
+        <center>
+        <div class="title">
         <h1>Drivers</h1>
         <Drivers f1Drivers={this.state.drivers}  ReloadDrivers={this.ReloadDrivers}></Drivers>
-      </div>
+      </div></center></div>
     );
   }
 }
