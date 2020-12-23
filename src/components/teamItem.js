@@ -4,6 +4,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 export class TeamItem extends React.Component {
 
@@ -18,7 +19,9 @@ export class TeamItem extends React.Component {
     console.log("Delete: "+this.props.team._id);
 
     axios.delete("http://localhost:4000/api/teams/"+this.props.team._id)
-    .then()
+    .then(()=>{
+      this.props.ReloadTeams();
+    })
     .catch();
   }
 
@@ -35,11 +38,10 @@ export class TeamItem extends React.Component {
           <ListGroup className="list-group-flush">
             <ListGroupItem>{this.props.team.year}</ListGroupItem>
           </ListGroup>
+          <Link to={"/updateTeam/"+ this.props.team._id} className="btn btn-warning">Update</Link>
           <Button variant="danger" onClick={this.DeleteTeam}>Delete</Button>
         </Card></row>
         
-      
-
         <br></br></center>
       </div>
     );

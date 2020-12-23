@@ -4,6 +4,7 @@ const port = 4000;
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const path = require('path');
 
 f1.use(cors());
 f1.use(function (req, res, next) {
@@ -15,6 +16,9 @@ f1.use(function (req, res, next) {
   );
   next();
 });
+
+f1.use(express.static(path.join(__dirname, '../build')));
+f1.use('/static', express.static(path.join(__dirname, 'build//static')));
 
 f1.use(bodyParser.urlencoded({ extended: false }));
 
@@ -104,6 +108,26 @@ f1.delete('/api/drivers/:id',(req,res)=>{
   })
 })
 
+f1.put('/api/teams/:id',(req,res)=>{
+  console.log("Update Team: "+req.params.id);
+  console.log(req.body);
+
+  F1Model.findByIdAndUpdate(req.params.id,req.body, {new:true},
+    (error,data)=>{
+      res.send(data);
+    })
+})
+
+f1.put('/api/drivers/:id',(req,res)=>{
+  console.log("Update Driver: "+req.params.id);
+  console.log(req.body);
+
+  driverModel.findByIdAndUpdate(req.params.id,req.body, {new:true},
+    (error,data)=>{
+      res.send(data);
+    })
+})
+
 
 f1.post("/api/teams", (req, res) => {
   console.log("Team Registered!");
@@ -120,6 +144,10 @@ f1.post("/api/teams", (req, res) => {
   res.send("Team added");
 });
 
+f1.get('*', (req,res)=>{
+  res.sendFile(path.join(__dirname+'/../build/index.html'));
+})
+
 f1.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
@@ -133,3 +161,7 @@ this file lositens on localhost 4000 and it shares information down to localhost
 Added delete components for drivers and teams
 Date 22/12/20*/
 
+/*added update components to page, now the suer can update information on the teams and the drivers as well 
+I also created a build of my app and linked it using express
+added a get emthid that collects the index.html file in the build folder
+Date: 23/12/20 */

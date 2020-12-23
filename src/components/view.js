@@ -3,8 +3,14 @@ import { Teams } from "./teams";
 import axios from "axios";
 
 export class View extends React.Component {
+
+  constructor(){
+    super();
+
+    this.ReloadTeams = this.ReloadTeams.bind(this);
+  }
   state = {
-    teams: [],
+    teams: []
   };
 
   componentDidMount(){
@@ -14,14 +20,27 @@ export class View extends React.Component {
     })
     .catch((error) => {
     console.log(error);
-    })
+    });
     }   
+
+ReloadTeams(){
+  axios.get('http://localhost:4000/api/teams')
+  .then((response) => {
+  this.setState({ teams: response.data });
+  })
+  .catch((error) => {
+  console.log(error);
+  });  
+
+}
+
+
 
   render() {
     return (
       <div>
         <h1>Teams</h1>
-        <Teams f1Teams={this.state.teams}></Teams>
+        <Teams f1Teams={this.state.teams} ReloadTeams={this.ReloadTeams}></Teams>
       </div>
     );
   }

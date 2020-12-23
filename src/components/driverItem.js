@@ -4,6 +4,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 export class DriverItem extends React.Component {
 
@@ -18,7 +19,9 @@ export class DriverItem extends React.Component {
     console.log("Delete: "+this.props.driver._id);
 
     axios.delete("http://localhost:4000/api/drivers/"+this.props.driver._id)
-    .then()
+    .then(()=>{
+      this.props.ReloadDrivers();
+    })
     .catch();
   }
 
@@ -36,11 +39,10 @@ export class DriverItem extends React.Component {
           <ListGroupItem>{this.props.driver.team}</ListGroupItem>
             <ListGroupItem>{this.props.driver.dob}</ListGroupItem>
           </ListGroup>
+          <Link to={"/updateDriver/"+ this.props.driver._id} className="btn btn-warning">Update</Link>
           <Button variant="danger" onClick={this.DeleteDriver}>Delete</Button>
         </Card></row>
         
-      
-
         <br></br></center>
       </div>
     );

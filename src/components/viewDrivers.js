@@ -3,6 +3,12 @@ import { Drivers } from "./drivers";
 import axios from "axios";
 
 export class ViewDrivers extends React.Component {
+
+  constructor(){
+    super();
+
+    this.ReloadDrivers = this.ReloadDrivers.bind(this);
+  }
   state = {
     drivers: [],
   };
@@ -17,11 +23,22 @@ export class ViewDrivers extends React.Component {
     })
     }   
 
+    ReloadDrivers(){
+      axios.get('http://localhost:4000/api/drivers')
+      .then((response) => {
+      this.setState({ drivers: response.data });
+      })
+      .catch((error) => {
+      console.log(error);
+      });  
+    
+    }
+
   render() {
     return (
       <div>
         <h1>Drivers</h1>
-        <Drivers f1Drivers={this.state.drivers}></Drivers>
+        <Drivers f1Drivers={this.state.drivers}  ReloadDrivers={this.ReloadDrivers}></Drivers>
       </div>
     );
   }

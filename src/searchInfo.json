@@ -1,0 +1,81 @@
+[{
+    "fullname": "Charles Leclerc",
+    "team": "Ferrari",
+    "year": 1950
+  }, {
+    "fullname": "Carlos Sainz",
+    "team": "Ferrari",
+    "year": 1950
+  }, {
+    "fullname": "Max Verstappen",
+    "team": "Red Bull",
+    "year": 2005
+  }, {
+    "fullname": "Sergio Perez",
+    "team": "Red Bull",
+    "year": 2005
+  }, {
+    "fullname": "Daniel Ricciardo",
+    "team": "Mclaren",
+    "year": 1966
+  }, {
+    "fullname": "Lando Norris",
+    "team": "Mclaren",
+    "year": 1966
+  }, {
+    "fullname": "Sebastian Vettel",
+    "team": "Aston Martin",
+    "year": 2021
+  }, {
+    "fullname": "Lance Stroll",
+    "team": "Aston Martin",
+    "year": 2021
+  }, {
+    "fullname": "Lewis Hamilton",
+    "team": "Mercedes AMG Petronas",
+    "year": 2010
+  }, {
+    "fullname": "Valtteri Bottas",
+    "team": "Mercedes AMG Petronas",
+    "year": 2010
+  }, {
+    "fullname": "Fernando Alonso",
+    "team": "Alpine",
+    "year": 2021
+  }, {
+    "fullname": "Esteban Ocon",
+    "team": "Alpine",
+    "year": 2021
+  }, {
+    "fullname": "Kimi Raikkonen",
+    "team": "Alfa Romeo",
+    "year": 2019
+  }, {
+    "fullname": "Antonio Giovinazzi",
+    "team": "Alfa Romeo",
+    "year": 2019
+  }, {
+    "fullname": "Mick Schumacher",
+    "team": "Haas",
+    "year": 2016
+  }, {
+    "fullname": "Nikita Mazepin",
+    "team": "Haas",
+    "year": 2016
+  }, {
+    "fullname": "George Russell",
+    "team": "Williams",
+    "year": 1977
+  }, {
+    "fullname": "Nicholas Latifi",
+    "team": "Williams",
+    "year": 1977
+  }, {
+    "fullname": "Pierre Gasly",
+    "team": "Alpha Tauri",
+    "year": 2020
+  }, {
+    "fullname": "Yuki Tsnuoda",
+    "team": "Alpha Tauri",
+    "year": 2020
+  }]

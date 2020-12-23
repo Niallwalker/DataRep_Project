@@ -10,6 +10,8 @@ import { Content } from "./components/content";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import { AddDriver } from "./components/addDriver";
 import { ViewDrivers } from "./components/viewDrivers";
+import { UpdateTeam } from "./components/updateTeam";
+import { UpdateDriver } from "./components/updateDriver";
 
 class App extends Component {
   render() {
@@ -29,12 +31,10 @@ class App extends Component {
     </Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/view">View Teams</Nav.Link>
-            <Nav.Link href="/viewDrivers">View Drivers</Nav.Link>
+            <Nav.Link href="/view">Teams</Nav.Link>
+            <Nav.Link href="/viewDrivers">Drivers</Nav.Link>
             <Nav.Link href="/add">Add Team</Nav.Link>
             <Nav.Link href="/addDriver">Add Driver</Nav.Link>
-            <Nav.Link href="/update">Update</Nav.Link>
-            <Nav.Link href="/remove">Remove</Nav.Link>
           </Nav>
           <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -49,8 +49,9 @@ class App extends Component {
           <Route path='/viewDrivers' component={ViewDrivers} exact/>
           <Route path='/add' component={Add} exact/>
           <Route path='/addDriver' component={AddDriver} exact/>
+          <Route path='/updateTeam/:id' component={UpdateTeam} exact/>
+          <Route path='/updateDriver/:id' component={UpdateDriver} exact/>
         </Switch>
-
       </div>
       </Router>
     );
