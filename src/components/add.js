@@ -8,12 +8,16 @@ export class Add extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.onChangeTeam = this.onChangeTeam.bind(this);
     this.onChangeYear = this.onChangeYear.bind(this);
+    this.onChangeWins = this.onChangeWins.bind(this);
+    this.onChangeTitles = this.onChangeTitles.bind(this);
     this.onChangeLogo = this.onChangeLogo.bind(this);
 
     this.state = {
       strTeam: "",
       intFormedYear: "",
       strTeamBadge: "",
+      strWins: "",
+      strTitles: "",
     };
   }
 
@@ -29,6 +33,18 @@ export class Add extends React.Component {
     });
   }
 
+  onChangeWins(t) {
+    this.setState({
+      strWins: t.target.value,
+    });
+  }
+
+  onChangeTitles(t) {
+    this.setState({
+      strTitles: t.target.value,
+    });
+  }
+
   onChangeLogo(t) {
     this.setState({
       strTeamBadge: t.target.value,
@@ -39,11 +55,15 @@ export class Add extends React.Component {
     t.preventDefault();
     alert("Team: " + this.state.strTeam + " "
       + this.state.intFormedYear + " " +
+      this.state.strWins + " " +
+      this.state.strTitles + " " +
       this.state.strTeamBadge);
 
       const newTeam = {
             name: this.state.strTeam,
             year: this.state.intFormedYear,
+            wins: this.state.strWins,
+            titles: this.state.strTitles,
             logo: this.state.strTeamBadge
         }
         axios.post('http://localhost:4000/api/teams',newTeam)
@@ -79,6 +99,24 @@ export class Add extends React.Component {
               className="form-control"
               value={this.state.intFormedYear}
               onChange={this.onChangeYear} placeholder="When was it formed"
+            ></input>
+          </div>
+          <div className="form-group">
+            <label>Wins: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.strWins}
+              onChange={this.onChangeWins} placeholder="How many race wins?"
+            ></input>
+          </div>
+          <div className="form-group">
+            <label>Titles: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.strTitles}
+              onChange={this.onChangeTitles} placeholder="How many titles?"
             ></input>
           </div>
           <div className="form-group">

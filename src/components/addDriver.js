@@ -9,6 +9,10 @@ export class AddDriver extends React.Component {
       this.onChangeName = this.onChangeName.bind(this);
       this.onChangeDob = this.onChangeDob.bind(this);
       this.onChangeTeam = this.onChangeTeam.bind(this);
+      this.onChangeStarts = this.onChangeStarts.bind(this);
+      this.onChangePoles = this.onChangePoles.bind(this);
+      this.onChangeWins = this.onChangeWins.bind(this);
+      this.onChangeTitles = this.onChangeTitles.bind(this);
       this.onChangeImage = this.onChangeImage.bind(this);
   
       this.state = {
@@ -16,6 +20,10 @@ export class AddDriver extends React.Component {
         intDOB: "",
         strTeam: "",
         strImage: "",
+        strStart: "",
+        strPoles: "",
+        strWins: "",
+        strTitles: "",
       };
     }
   
@@ -42,19 +50,52 @@ export class AddDriver extends React.Component {
           strImage: d.target.value,
         });
       }
+
+    
+      onChangeStarts(d) {
+        this.setState({
+          strStart: d.target.value,
+        });
+      }
+
+      onChangePoles(d) {
+        this.setState({
+          strPoles: d.target.value,
+        });
+      }
+
+      onChangeWins(d) {
+        this.setState({
+          strWins: d.target.value,
+        });
+      }
+
+      onChangeTitles(d) {
+        this.setState({
+          strTitles: d.target.value,
+        });
+      }
   
     onSubmit(d) {
       d.preventDefault();
       alert("Driver: " + this.state.strName + " " +
-        this.state.strTeam + " "
-        + this.state.intDOB + " " +
-        this.state.strImage);
+        this.state.strTeam + " "+ 
+        this.state.intDOB + " " +
+        this.state.strImage + " " +
+        this.state.strStart + " " +
+        this.state.strPoles + " " +
+        this.state.strWins + " " +
+        this.state.strTitles);
   
         const newDriver = {
               fullname: this.state.strName,
               dob: this.state.intDOB,
               team: this.state.strTeam,
-              image: this.state.strImage
+              image: this.state.strImage,
+              starts: this.state.strStart,
+              poles: this.state.strPoles,
+              wins: this.state.strWins,
+              titles: this.state.strTitles
           }
           axios.post('http://localhost:4000/api/drivers',newDriver)
           .then((res)=>{
@@ -97,7 +138,43 @@ export class AddDriver extends React.Component {
                 type="text"
                 className="form-control"
                 value={this.state.intDOB}
-                onChange={this.onChangeDob} placeholder="When were the born?"
+                onChange={this.onChangeDob} placeholder="When were they born?"
+              ></input>
+            </div>
+            <div className="form-group">
+              <label>Race Starts: </label>
+              <input
+                type="text"
+                className="form-control"
+                value={this.state.strStart}
+                onChange={this.onChangeStarts} placeholder="How many starts have they got?"
+              ></input>
+            </div>
+            <div className="form-group">
+              <label>Pole Positions: </label>
+              <input
+                type="text"
+                className="form-control"
+                value={this.state.strPoles}
+                onChange={this.onChangePoles} placeholder="How many pole positions?"
+              ></input>
+            </div>
+            <div className="form-group">
+              <label>Race Wins: </label>
+              <input
+                type="text"
+                className="form-control"
+                value={this.state.strWins}
+                onChange={this.onChangeWins} placeholder="How many race wins?"
+              ></input>
+            </div>
+            <div className="form-group">
+              <label>Titles: </label>
+              <input
+                type="text"
+                className="form-control"
+                value={this.state.strTitles}
+                onChange={this.onChangeTitles} placeholder="How many titles have they got?"
               ></input>
             </div>
             <div className="form-group">

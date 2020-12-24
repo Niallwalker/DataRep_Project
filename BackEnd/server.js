@@ -34,6 +34,9 @@ var f1Schema = new Schema({
   name: String,
   year: String,
   logo: String,
+  starts: String,
+  wins: String,
+  titles: String,
 });
 
 var F1Model = mongoose.model("F1", f1Schema);
@@ -42,6 +45,10 @@ var driverSchema = new Schema({
   fullname: String,
   dob: String,
   team: String,
+  poles: String,
+  starts: String,
+  wins: String,
+  titles: String,
   image: String
 });
 
@@ -64,13 +71,21 @@ f1.post('/api/drivers', (req, res)=>{
   console.log(req.body.fullname);
   console.log(req.body.dob);
   console.log(req.body.team);
+  console.log(req.body.starts);
+  console.log(req.body.poles);
+  console.log(req.body.wins);
+  console.log(req.body.titles);
   console.log(req.body.image);
 
   driverModel.create({
     fullname: req.body.fullname,
     dob: req.body.dob,
-    image: req.body.image,
-    team: req.body.team
+    team: req.body.team,
+    starts: req.body.starts,
+    poles: req.body.poles,
+    wins: req.body.wins,
+    titles: req.body.titles,
+    image: req.body.image
   })
 
   res.send('driver added')
@@ -134,11 +149,17 @@ f1.post("/api/teams", (req, res) => {
   console.log(req.body.name);
   console.log(req.body.year);
   console.log(req.body.logo);
+  console.log(req.body.starts);
+  console.log(req.body.wins);
+  console.log(req.body.titles);
 
   F1Model.create({
     name: req.body.name,
     year: req.body.year,
     logo: req.body.logo,
+    starts: req.body.starts,
+    wins: req.body.wins,
+    titles: req.body.titles
   });
 
   res.send("Team added");

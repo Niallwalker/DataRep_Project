@@ -6,6 +6,7 @@ import {Navbar, Nav, Form, FormControl, Button}from 'react-bootstrap';
 import { Add } from "./components/add";
 import { View } from "./components/view";
 import { Content } from "./components/content";
+import { LinkContainer } from 'react-router-bootstrap';
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import { AddDriver } from "./components/addDriver";
@@ -30,22 +31,29 @@ class App extends Component {
       />{' '}
       Formula 1
     </Navbar.Brand>
-          <Nav className="mr-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/view">Teams</Nav.Link>
-            <Nav.Link href="/viewDrivers">Drivers</Nav.Link>
-            <Nav.Link href="/add">Add Team</Nav.Link>
-            <Nav.Link href="/addDriver">Add Driver</Nav.Link>
+          <Nav >
+          <LinkContainer to='/home'>
+          <Nav.Link>Home</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/view">
+          <Nav.Link>Teams</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to='/viewDrivers'>
+          <Nav.Link>Drivers</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to='/add'>
+          <Nav.Link>Add Teams</Nav.Link>
+          </LinkContainer> 
+          <LinkContainer to='/addDriver'>
+          <Nav.Link>Add Drivers</Nav.Link>
+          </LinkContainer>
           </Nav>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-danger">Search</Button>
-          </Form>
+        
         </Navbar>
         </div>
         <br></br>
         <Switch>
-          <Route path='/' component={Content} exact/>
+          <Route path='/home' component={Content} exact/>
           <Route path='/view' component={View} exact/>
           <Route path='/viewDrivers' component={ViewDrivers} exact/>
           <Route path='/add' component={Add} exact/>

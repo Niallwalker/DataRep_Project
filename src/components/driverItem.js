@@ -32,14 +32,18 @@ export class DriverItem extends React.Component {
     
         <Container>
             <row>
-            <Col><Card style={{ width: "20rem" }}>
+            <Col><Card border="danger" style={{ width: "30rem" }}>
           <Card.Img variant="top" src={this.props.driver.image} />
           <Card.Body>
             <Card.Title>{this.props.driver.fullname}</Card.Title>
           </Card.Body>
           <ListGroup className="list-group-flush">
-          <ListGroupItem>{this.props.driver.team}</ListGroupItem>
-            <ListGroupItem>{this.props.driver.dob}</ListGroupItem>
+          <ListGroupItem>Team: {this.props.driver.team}</ListGroupItem>
+          <ListGroupItem>Age: {this.props.driver.dob}</ListGroupItem>
+          <ListGroupItem>Starts: {this.props.driver.starts}</ListGroupItem>
+          <ListGroupItem>Poles: {this.props.driver.poles}</ListGroupItem>
+          <ListGroupItem>Wins: {this.props.driver.wins}</ListGroupItem>
+          <ListGroupItem>Titles: {this.props.driver.titles}</ListGroupItem>
           </ListGroup>
           <Link to={"/updateDriver/"+ this.props.driver._id} className="btn btn-warning">Update</Link>
           <Button variant="danger" onClick={this.DeleteDriver}>Delete</Button>

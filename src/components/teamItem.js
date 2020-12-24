@@ -1,10 +1,14 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';  
 import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+
 
 export class TeamItem extends React.Component {
 
@@ -28,22 +32,25 @@ export class TeamItem extends React.Component {
   render() {
     return (
       <div>
-          <center>
-            <row>
-        <Card style={{ width: "20rem" }}>
+      <Container>
+        <Row>
+            <Col>
+              <Card border="danger" style={{ width: "30rem" }}>
           <Card.Img variant="top" src={this.props.team.logo} />
           <Card.Body>
             <Card.Title>{this.props.team.name}</Card.Title>
           </Card.Body>
           <ListGroup className="list-group-flush">
-            <ListGroupItem>{this.props.team.year}</ListGroupItem>
+          <ListGroupItem>Year Formed: {this.props.team.year}</ListGroupItem>
+          <ListGroupItem>Wins: {this.props.team.wins}</ListGroupItem>
+          <ListGroupItem>Titles: {this.props.team.titles}</ListGroupItem>
           </ListGroup>
           <Link to={"/updateTeam/"+ this.props.team._id} className="btn btn-warning">Update</Link>
           <Button variant="danger" onClick={this.DeleteTeam}>Delete</Button>
-        </Card></row>
-        
-        <br></br></center>
-      </div>
+        </Card><br></br></Col>
+        </Row>
+      </Container>
+    </div>
     );
   }
 }
