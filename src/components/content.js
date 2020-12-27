@@ -1,4 +1,5 @@
 import React from "react";
+import ReactPlayer from 'react-player'
 import Carousel from "react-bootstrap/Carousel";
 
 
@@ -10,7 +11,7 @@ export class Content extends React.Component {
           <h1>Formula 1</h1>
           <h3>A tribute application made in react dedicated to one of the finest sports in the world</h3></div>
           <div class="carobg">
-        <Carousel style={{ width: "65rem" }}>
+        <Carousel style={{ width: "75rem" }}>
           <Carousel.Item interval={1000}>
             <img
               className="d-block w-100"
@@ -53,12 +54,15 @@ export class Content extends React.Component {
         </Carousel>
 </div>
 <br></br>
-        <div class="title">
+        <div class="intro">
           <h1>What you can see and do</h1>
           <h3>In this app you can view all of the teams and drivers, edit their names, date of births and profile pictures.
             You can also do the same for teams also. You can also delete old teams and replace them with new ones either.</h3></div><br></br>
-      </center>
+      <ReactPlayer url= 'https://www.youtube.com/watch?v=PSStcNI7Rzo' style={{ width: "100rem" }}>
       
+             <br></br></ReactPlayer>
+     </center> 
+
     );
   }
 }

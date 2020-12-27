@@ -31,10 +31,7 @@ export class TeamItem extends React.Component {
 
   render() {
     return (
-      <div>
-      <Container>
-        <Row>
-            <Col>
+      <div class="col-lg-6 mb-4"> 
               <Card border="danger" style={{ width: "30rem" }}>
           <Card.Img variant="top" src={this.props.team.logo} />
           <Card.Body>
@@ -47,9 +44,7 @@ export class TeamItem extends React.Component {
           </ListGroup>
           <Link to={"/updateTeam/"+ this.props.team._id} className="btn btn-warning">Update</Link>
           <Button variant="danger" onClick={this.DeleteTeam}>Delete</Button>
-        </Card><br></br></Col>
-        </Row>
-      </Container>
+        </Card><br></br>
     </div>
     );
   }

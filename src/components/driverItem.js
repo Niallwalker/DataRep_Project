@@ -1,10 +1,12 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import CardDeck from "react-bootstrap/CardDeck";
 import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
@@ -29,31 +31,29 @@ export class DriverItem extends React.Component {
 
   render() {
     return (
-    
-        <Container>
-            <row>
-            <Col><Card border="danger" style={{ width: "30rem" }}>
-          <Card.Img variant="top" src={this.props.driver.image} />
-          <Card.Body>
-            <Card.Title>{this.props.driver.fullname}</Card.Title>
-          </Card.Body>
-          <ListGroup className="list-group-flush">
-          <ListGroupItem>Team: {this.props.driver.team}</ListGroupItem>
-          <ListGroupItem>Age: {this.props.driver.dob}</ListGroupItem>
-          <ListGroupItem>Starts: {this.props.driver.starts}</ListGroupItem>
-          <ListGroupItem>Poles: {this.props.driver.poles}</ListGroupItem>
-          <ListGroupItem>Wins: {this.props.driver.wins}</ListGroupItem>
-          <ListGroupItem>Titles: {this.props.driver.titles}</ListGroupItem>
-          </ListGroup>
-          <Link to={"/updateDriver/"+ this.props.driver._id} className="btn btn-warning">Update</Link>
-          <Button variant="danger" onClick={this.DeleteDriver}>Delete</Button>
-        </Card></Col>
-        <br></br>
-        </row>
-       </Container>  
-    );
-  }
-}
+      <div className="card mb-3" style={{width: '60rem'}}>
+   <div className="row no-gutters">
+      <div className="col-md-4"> 
+      <img src={this.props.driver.image} class="img-fluid" alt=""></img>
+          <rect width="100%" height="100%" fill="#868e96" />
+            </div>
+             <div className="col-md-8"> 
+             <div className="card-body"> 
+             <h4 className="card-title">Name: {this.props.driver.fullname}</h4> 
+             <h5 className="card-text"> Team: {this.props.driver.team} </h5> 
+             <h5 className="card-text"> Date of birth: {this.props.driver.dob} </h5> 
+             <h5 className="card-text"> Race Starts: {this.props.driver.start} </h5>
+             <h5 className="card-text"> Poles: {this.props.driver.poles} </h5>
+             <h5 className="card-text"> Race Wins: {this.props.driver.wins} </h5> 
+             <h5 className="card-text"> Titles: {this.props.driver.titles} </h5>           
+              <Link to={"/updateDriver/"+ this.props.driver._id} className="btn btn-warning">Update</Link>
+          <Button variant="danger" onClick={this.DeleteDriver}>Delete</Button></div> </div> </div> </div> 
+              
+              
+              ); } }
+              
+  
+
 /* created DriverItem class. This class shows the info taken from the database in MongoDB and then
 they appear in a stylish bootstrap card. 
 Date 21/12/20

@@ -41,16 +41,38 @@
 }
 
 .carobg{
-
-  border-radius: 5px;
-  width: 70%;
+  width: 80%;
 }
 
 .formStyle{
   width: 70%;
 }
 
+.intro{
+  width: 70%;;
+}
 
+.vid{
+  width: 100%;
+}
+
+.card {
+  display:inline-block;
+}
+
+.grandparent{
+  display:flex;
+  flex-direction:column;
+ }
+ .parent{
+   display:flex; 
+ }
+ 
+ .child{
+   height:100px;
+   width:100%;
+ }
+ 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -59,3 +81,4 @@
     transform: rotate(360deg);
   }
 }
+

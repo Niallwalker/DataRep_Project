@@ -1,6 +1,8 @@
 import React from "react";
 import { Drivers } from "./drivers";
 import axios from "axios";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';  
 
 export class ViewDrivers extends React.Component {
 
@@ -36,12 +38,15 @@ export class ViewDrivers extends React.Component {
 
   render() {
     return (
-      <div>
+        
         <center>
         <div class="title">
         <h1>Drivers</h1>
         <Drivers f1Drivers={this.state.drivers}  ReloadDrivers={this.ReloadDrivers}></Drivers>
-      </div></center></div>
+        </div>
+ 
+        </center>
+        
     );
   }
 }

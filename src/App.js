@@ -8,6 +8,7 @@ import { View } from "./components/view";
 import { Content } from "./components/content";
 import { LinkContainer } from 'react-router-bootstrap';
 
+
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import { AddDriver } from "./components/addDriver";
 import { ViewDrivers } from "./components/viewDrivers";
@@ -21,7 +22,7 @@ class App extends Component {
         <div class="title">
       <div className="App">
         <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="/">
+        <Navbar.Brand href="/home">
       <img
         alt="https://www.formula1.com/"
         src="https://logodownload.org/wp-content/uploads/2016/11/formula-1-logo-7.png"
