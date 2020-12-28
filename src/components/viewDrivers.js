@@ -1,8 +1,6 @@
 import React from "react";
 import { Drivers } from "./drivers";
 import axios from "axios";
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';  
 
 export class ViewDrivers extends React.Component {
 
@@ -13,7 +11,9 @@ export class ViewDrivers extends React.Component {
   }
   state = {
     drivers: [],
+  
   };
+    
 
   componentDidMount(){
     axios.get('http://localhost:4000/api/drivers')
@@ -22,7 +22,7 @@ export class ViewDrivers extends React.Component {
     })
     .catch((error) => {
     console.log(error);
-    })
+    });
     }   
 
     ReloadDrivers(){
@@ -50,6 +50,7 @@ export class ViewDrivers extends React.Component {
     );
   }
 }
+
 /* created View drivers class to show of the drivers added
 Drivers now appear on mongoDB and on my apps terminal on VS Code
 Here, yous ee the drivers team, name, date of birth and an image of who they look like.

@@ -1,11 +1,5 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';  
-import ListGroup from "react-bootstrap/ListGroup";
-import ListGroupItem from "react-bootstrap/ListGroupItem";
-import Button from 'react-bootstrap/Button';
+import {Button,Card} from 'react-bootstrap';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
@@ -31,21 +25,24 @@ export class TeamItem extends React.Component {
 
   render() {
     return (
-      <div class="col-lg-6 mb-4"> 
-              <Card border="danger" style={{ width: "30rem" }}>
-          <Card.Img variant="top" src={this.props.team.logo} />
-          <Card.Body>
-            <Card.Title>{this.props.team.name}</Card.Title>
-          </Card.Body>
-          <ListGroup className="list-group-flush">
-          <ListGroupItem>Year Formed: {this.props.team.year}</ListGroupItem>
-          <ListGroupItem>Wins: {this.props.team.wins}</ListGroupItem>
-          <ListGroupItem>Titles: {this.props.team.titles}</ListGroupItem>
-          </ListGroup>
+     
+      <Card border="danger" style={{ width: '60%' }}>
+      <div className="card mb-3" >
+      <div className="row no-gutters">
+         <div className="col-md-4"> 
+         <img src={this.props.team.logo} class="img-fluid" alt=""></img>
+             <rect width="80%" height="80%" fill="#868e96" />
+               </div>
+                <div className="col-md-8"> 
+                <div className="card-body"> 
+                <h5 className="card-text"> Team Name: {this.props.team.name} </h5> 
+                <h5 className="card-text"> Year Formed: {this.props.team.year} </h5> 
+                <h5 className="card-text"> Race Wins: {this.props.team.wins} </h5> 
+                <h5 className="card-text"> Titles: {this.props.team.titles} </h5>   
+                </div></div></div><br></br>  
           <Link to={"/updateTeam/"+ this.props.team._id} className="btn btn-warning">Update</Link>
-          <Button variant="danger" onClick={this.DeleteTeam}>Delete</Button>
-        </Card><br></br>
-    </div>
+          <Button variant="danger" onClick={this.DeleteTeam}>Delete</Button></div>
+          </Card>
     );
   }
 }
@@ -53,5 +50,8 @@ export class TeamItem extends React.Component {
 bootstrap card used to show off data in a stylish way. 
  
 Added delete button to page
-Date 22/12/20*/
+Date 22/12/20
+
+Added new card layout, same as the driver page 
+28/12/20*/
 

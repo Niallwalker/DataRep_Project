@@ -1,152 +1,46 @@
 import React from "react";
-import axios from 'axios';
+import {CardDeck, Card } from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 export class Add extends React.Component {
-  constructor() {
-    super();
-
-    this.onSubmit = this.onSubmit.bind(this);
-    this.onChangeTeam = this.onChangeTeam.bind(this);
-    this.onChangeYear = this.onChangeYear.bind(this);
-    this.onChangeWins = this.onChangeWins.bind(this);
-    this.onChangeTitles = this.onChangeTitles.bind(this);
-    this.onChangeLogo = this.onChangeLogo.bind(this);
-
-    this.state = {
-      strTeam: "",
-      intFormedYear: "",
-      strTeamBadge: "",
-      strWins: "",
-      strTitles: "",
-    };
-  }
-
-  onChangeTeam(t) {
-    this.setState({
-      strTeam: t.target.value,
-    });
-  }
-
-  onChangeYear(t) {
-    this.setState({
-      intFormedYear: t.target.value,
-    });
-  }
-
-  onChangeWins(t) {
-    this.setState({
-      strWins: t.target.value,
-    });
-  }
-
-  onChangeTitles(t) {
-    this.setState({
-      strTitles: t.target.value,
-    });
-  }
-
-  onChangeLogo(t) {
-    this.setState({
-      strTeamBadge: t.target.value,
-    });
-  }
-
-  onSubmit(t) {
-    t.preventDefault();
-    alert("Team: " + this.state.strTeam + " "
-      + this.state.intFormedYear + " " +
-      this.state.strWins + " " +
-      this.state.strTitles + " " +
-      this.state.strTeamBadge);
-
-      const newTeam = {
-            name: this.state.strTeam,
-            year: this.state.intFormedYear,
-            wins: this.state.strWins,
-            titles: this.state.strTitles,
-            logo: this.state.strTeamBadge
-        }
-        axios.post('http://localhost:4000/api/teams',newTeam)
-        .then((res)=>{
-            console.log(res);
-        })
-        .catch((err)=>{
-            console.log(err);
-        });
-  }
 
   render() {
     return (
-      <center>
-        <div class="formStyle">
-      <div class="title">
-        <h1>Add Team</h1>
-      <div className="App">
-        <form onSubmit={this.onSubmit}>
-          <div className="form-group">
-            <label>Team Name: </label>
-            <input
-              type="text"
-              className="form-control"
-              value={this.state.strTeam}
-              onChange={this.onChangeTeam} placeholder="What the team name?"
-            ></input>
-          </div>
-          <div className="form-group">
-            <label>Year Formed: </label>
-            <input
-              type="text"
-              className="form-control"
-              value={this.state.intFormedYear}
-              onChange={this.onChangeYear} placeholder="When was it formed"
-            ></input>
-          </div>
-          <div className="form-group">
-            <label>Wins: </label>
-            <input
-              type="text"
-              className="form-control"
-              value={this.state.strWins}
-              onChange={this.onChangeWins} placeholder="How many race wins?"
-            ></input>
-          </div>
-          <div className="form-group">
-            <label>Titles: </label>
-            <input
-              type="text"
-              className="form-control"
-              value={this.state.strTitles}
-              onChange={this.onChangeTitles} placeholder="How many titles?"
-            ></input>
-          </div>
-          <div className="form-group">
-            <label>Team Logo: </label>
-            <textarea
-              type="text"
-              className="form-control"
-              value={this.state.strTeamBadge}
-              onChange={this.onChangeLogo} placeholder="What is their logo?"
-            ></textarea>
-          </div>
-          <div className="form-group">
-            <input
-              type="submit"
-              value="Add Team"
-              className="btn btn-danger"
-            ></input>
-          </div>
-        </form>
-      </div>
-      </div>
-      </div>
-      </center>
-    );
-  }
-}
-/* created add class to show of add class in app
-created components folder and placed add file in it 
-Date 21/12/10
-added a form from reactjs and constructor. Here users will be able to create teams and add them to the DB
+<center>
+  <br></br>
+    <h1>What do you want to create?</h1>
+        <CardDeck style={{width: '80rem', height: '40rem'}} >
+        <Card border="danger">
+          <Card.Img variant="top" src="https://3legs4wheels.com/wordpress/wp-content/uploads/2019/03/ferrari-pitstop-2019.jpg" />
+          <Card.Body>
+            <Card.Title><h1>New Team</h1></Card.Title>
+            <Card.Text>
+              <h5>Is there a new team on the grid? You want to make one powered by your imagination? 
+              Or bring back a team from the past? the click here to create your Team!</h5>
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer>
+          <Link to={'/addTeam/'} className="btn btn-danger">Add Team</Link>
+          </Card.Footer>
+        </Card>
+        <Card border="danger">
+          <Card.Img variant="top" src="https://i.imgur.com/Ap1S65S.jpg" />
+          <Card.Body>
+            <Card.Title><h1>New Driver</h1></Card.Title>
+            <Card.Text>
+            <h5>Is there a new kid on the grid? You want put yourself alongside your heroes?
+            Or create a historic line up? the click here to create a Driver!</h5>
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer>
+          <Link to={'/addDriver/'} className="btn btn-danger">Add Driver</Link>
+          </Card.Footer>
+        </Card>
+      </CardDeck>
+</center>              
+); } } 
+              
 
-Info now appears in terminal and in an array called f1 on MongoDB
-Date: 22/12/20*/
+/* Created new ADD class. Tghis calss has 2 bootstrap card that the user can decide what they weant to make an addition to.
+ I had originally placed add team and driver to the navbar but I felt it was very overcrowded 
+ Date: 28/12/20*/ 

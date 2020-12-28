@@ -34,8 +34,8 @@
 
 .textbg{
   background-color: #282c34;
-  border: 2px solid #282c34;
-  border-radius: 25px;
+  border: 5% solid #282c34;
+  border-radius: 15%;
   color: white;
   opacity: 90%;
 }
@@ -46,6 +46,9 @@
 
 .formStyle{
   width: 70%;
+  padding: 3%;
+  border: 10px solid #dc3545;
+  border-radius: 2%;
 }
 
 .intro{
@@ -55,23 +58,6 @@
 .vid{
   width: 100%;
 }
-
-.card {
-  display:inline-block;
-}
-
-.grandparent{
-  display:flex;
-  flex-direction:column;
- }
- .parent{
-   display:flex; 
- }
- 
- .child{
-   height:100px;
-   width:100%;
- }
  
 @keyframes App-logo-spin {
   from {

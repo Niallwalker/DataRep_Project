@@ -2,15 +2,16 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {Navbar, Nav, Form, FormControl, Button}from 'react-bootstrap';
+import {Navbar, Nav}from 'react-bootstrap';
 import { Add } from "./components/add";
-import { View } from "./components/view";
+import { AddTeam } from "./components/addTeam";
+import { AddDriver } from "./components/addDriver";
+import { ViewTeams } from "./components/viewTeams";
 import { Content } from "./components/content";
 import { LinkContainer } from 'react-router-bootstrap';
 
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import { AddDriver } from "./components/addDriver";
 import { ViewDrivers } from "./components/viewDrivers";
 import { UpdateTeam } from "./components/updateTeam";
 import { UpdateDriver } from "./components/updateDriver";
@@ -22,7 +23,7 @@ class App extends Component {
         <div class="title">
       <div className="App">
         <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="/home">
+        <Navbar.Brand href="/">
       <img
         alt="https://www.formula1.com/"
         src="https://logodownload.org/wp-content/uploads/2016/11/formula-1-logo-7.png"
@@ -36,28 +37,29 @@ class App extends Component {
           <LinkContainer to='/home'>
           <Nav.Link>Home</Nav.Link>
           </LinkContainer>
-          <LinkContainer to="/view">
+          <LinkContainer to="/viewTeams">
           <Nav.Link>Teams</Nav.Link>
           </LinkContainer>
           <LinkContainer to='/viewDrivers'>
           <Nav.Link>Drivers</Nav.Link>
           </LinkContainer>
           <LinkContainer to='/add'>
-          <Nav.Link>Add Teams</Nav.Link>
+          <Nav.Link>Create</Nav.Link>
           </LinkContainer> 
-          <LinkContainer to='/addDriver'>
-          <Nav.Link>Add Drivers</Nav.Link>
-          </LinkContainer>
           </Nav>
         
         </Navbar>
         </div>
         <br></br>
+
+
+        
         <Switch>
           <Route path='/home' component={Content} exact/>
-          <Route path='/view' component={View} exact/>
+          <Route path='/viewTeams' component={ViewTeams} exact/>
           <Route path='/viewDrivers' component={ViewDrivers} exact/>
           <Route path='/add' component={Add} exact/>
+          <Route path='/addTeam' component={AddTeam} exact/>
           <Route path='/addDriver' component={AddDriver} exact/>
           <Route path='/updateTeam/:id' component={UpdateTeam} exact/>
           <Route path='/updateDriver/:id' component={UpdateDriver} exact/>
@@ -84,4 +86,7 @@ Date: 21/12/20*/
 
 /*Added add driver and view drivers to the navbar and added their appropriate paths.  
 Date: 22/12/20*/
+
+/*Added a video section underneath text and replaced add teams and drivers with just add for a simplier look  
+Date: 28/12/20*/
 <img src={logo} className="App-logo" alt="logo" />

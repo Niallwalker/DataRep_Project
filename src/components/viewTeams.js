@@ -2,7 +2,7 @@ import React from "react";
 import { Teams } from "./teams";
 import axios from "axios";
 
-export class View extends React.Component {
+export class ViewTeams extends React.Component {
 
   constructor(){
     super();
