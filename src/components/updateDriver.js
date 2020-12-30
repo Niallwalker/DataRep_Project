@@ -1,6 +1,7 @@
 import React from "react";
 import axios from 'axios';
 
+
 export class UpdateDriver extends React.Component {
   constructor() {
     super();
@@ -129,7 +130,7 @@ export class UpdateDriver extends React.Component {
   render() {
     return (
       <center>
-      <div class="formStyle">
+      <div class="updateStyle">
       <h1>Update Driver</h1>
       <div className="App">
         <form onSubmit={this.onSubmit}>
@@ -219,3 +220,9 @@ export class UpdateDriver extends React.Component {
     );
   }
 }
+
+/* Created the update driver class which I made on the 23/12/20
+I added a border around it to make it look a lot mnore stylish 
+things availabe to update are the image, name, team ,dob, race starts,
+wins and titles
+Date 30/12/20 */

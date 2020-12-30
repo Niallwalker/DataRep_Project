@@ -8,6 +8,7 @@ export class AddTeam extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.onChangeTeam = this.onChangeTeam.bind(this);
     this.onChangeYear = this.onChangeYear.bind(this);
+    this.onChangeStarts = this.onChangeWins.bind(this);
     this.onChangeWins = this.onChangeWins.bind(this);
     this.onChangeTitles = this.onChangeTitles.bind(this);
     this.onChangeLogo = this.onChangeLogo.bind(this);
@@ -16,6 +17,7 @@ export class AddTeam extends React.Component {
       strTeam: "",
       intFormedYear: "",
       strTeamBadge: "",
+      strStarts: "",
       strWins: "",
       strTitles: "",
     };
@@ -39,6 +41,12 @@ export class AddTeam extends React.Component {
     });
   }
 
+  onChangeStarts(t) {
+    this.setState({
+      strStarts: t.target.value,
+    });
+  }
+
   onChangeTitles(t) {
     this.setState({
       strTitles: t.target.value,
@@ -55,6 +63,7 @@ export class AddTeam extends React.Component {
     t.preventDefault();
     alert("Team: " + this.state.strTeam + " "
       + this.state.intFormedYear + " " +
+      this.state.strStarts + " " +
       this.state.strWins + " " +
       this.state.strTitles + " " +
       this.state.strTeamBadge);
@@ -62,6 +71,7 @@ export class AddTeam extends React.Component {
       const newTeam = {
             name: this.state.strTeam,
             year: this.state.intFormedYear,
+            starts: this.state.strStarts,
             wins: this.state.strWins,
             titles: this.state.strTitles,
             logo: this.state.strTeamBadge
@@ -99,6 +109,15 @@ export class AddTeam extends React.Component {
               className="form-control"
               value={this.state.intFormedYear}
               onChange={this.onChangeYear} placeholder="When was it formed"
+            ></input>
+          </div>
+          <div className="form-group">
+            <label>Race Starts: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.strStarts}
+              onChange={this.onChangeYear} placeholder="How many races have they competed in?"
             ></input>
           </div>
           <div className="form-group">
@@ -149,4 +168,8 @@ Date 21/12/10
 added a form from reactjs and constructor. Here users will be able to create teams and add them to the DB
 
 Info now appears in terminal and in an array called f1 on MongoDB
-Date: 22/12/20*/
+Date: 22/12/20
+
+Made a new add race starts section to insert form. This has also been added to ther update form
+I also added a bootstrap border around the form also
+Date: 30/12/20*/

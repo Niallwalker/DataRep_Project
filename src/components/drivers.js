@@ -1,4 +1,5 @@
 import React from 'react';
+// Imported DriverItem
 import {DriverItem} from './driverItem';
 
 export class Drivers extends React.Component{
@@ -7,6 +8,8 @@ export class Drivers extends React.Component{
 
         return this.props.f1Drivers.map( (driver)=>{
             return <DriverItem driver={driver} ReloadDrivers={this.props.ReloadDrivers}></DriverItem>
+
+            
         })
     }
 }

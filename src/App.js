@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {Navbar, Nav}from 'react-bootstrap';
+// Imported Component from React Bootstrap
+import { Navbar, Nav } from "react-bootstrap";
+// Imported Router from React Router
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+// All imported Components
 import { Add } from "./components/add";
 import { AddTeam } from "./components/addTeam";
 import { AddDriver } from "./components/addDriver";
 import { ViewTeams } from "./components/viewTeams";
 import { Content } from "./components/content";
-import { LinkContainer } from 'react-router-bootstrap';
-
-
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import { ViewDrivers } from "./components/viewDrivers";
 import { UpdateTeam } from "./components/updateTeam";
 import { UpdateDriver } from "./components/updateDriver";
@@ -21,50 +22,39 @@ class App extends Component {
     return (
       <Router>
         <div class="title">
-      <div className="App">
-        <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="/">
-      <img
-        alt="https://www.formula1.com/"
-        src="https://logodownload.org/wp-content/uploads/2016/11/formula-1-logo-7.png"
-        width="100"
-        height="25"
-        className="d-inline-block align-top"
-      />{' '}
-      Formula 1
-    </Navbar.Brand>
-          <Nav >
-          <LinkContainer to='/home'>
-          <Nav.Link>Home</Nav.Link>
-          </LinkContainer>
-          <LinkContainer to="/viewTeams">
-          <Nav.Link>Teams</Nav.Link>
-          </LinkContainer>
-          <LinkContainer to='/viewDrivers'>
-          <Nav.Link>Drivers</Nav.Link>
-          </LinkContainer>
-          <LinkContainer to='/add'>
-          <Nav.Link>Create</Nav.Link>
-          </LinkContainer> 
-          </Nav>
-        
-        </Navbar>
+          <div className="App">
+            <Navbar bg="dark" variant="dark">
+              <Navbar.Brand href="/">
+                <img
+                  alt=""
+                  src="https://logodownload.org/wp-content/uploads/2016/11/formula-1-logo-7.png"
+                  width="100"
+                  height="25"
+                  className="d-inline-block align-top"
+                />{" "}
+                Formula 1
+              </Navbar.Brand>
+              <Nav>
+                  <Nav.Link href="/">Home</Nav.Link>
+                  <Nav.Link href="/viewTeams">Teams</Nav.Link>
+                  <Nav.Link href="/viewDrivers">Drivers</Nav.Link>
+                  <Nav.Link href="/add">Create</Nav.Link>
+              </Nav>
+            </Navbar>
+          </div>
+          <br></br>
+
+          <Switch>
+            <Route path="/" component={Content} exact />
+            <Route path="/viewTeams" component={ViewTeams} exact />
+            <Route path="/viewDrivers" component={ViewDrivers} exact />
+            <Route path="/add" component={Add} exact />
+            <Route path="/addTeam" component={AddTeam} exact />
+            <Route path="/addDriver" component={AddDriver} exact />
+            <Route path="/updateTeam/:id" component={UpdateTeam} exact />
+            <Route path="/updateDriver/:id" component={UpdateDriver} exact />
+          </Switch>
         </div>
-        <br></br>
-
-
-        
-        <Switch>
-          <Route path='/home' component={Content} exact/>
-          <Route path='/viewTeams' component={ViewTeams} exact/>
-          <Route path='/viewDrivers' component={ViewDrivers} exact/>
-          <Route path='/add' component={Add} exact/>
-          <Route path='/addTeam' component={AddTeam} exact/>
-          <Route path='/addDriver' component={AddDriver} exact/>
-          <Route path='/updateTeam/:id' component={UpdateTeam} exact/>
-          <Route path='/updateDriver/:id' component={UpdateDriver} exact/>
-        </Switch>
-      </div>
       </Router>
     );
   }
@@ -89,4 +79,4 @@ Date: 22/12/20*/
 
 /*Added a video section underneath text and replaced add teams and drivers with just add for a simplier look  
 Date: 28/12/20*/
-<img src={logo} className="App-logo" alt="logo" />
+<img src={logo} className="App-logo" alt="logo" />;

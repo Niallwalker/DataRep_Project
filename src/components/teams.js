@@ -1,4 +1,5 @@
 import React from 'react';
+// Imported TeamItem
 import {TeamItem} from './teamItem';
 
 export class Teams extends React.Component{

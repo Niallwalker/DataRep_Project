@@ -1,5 +1,7 @@
 import React from "react";
+// Imported Component from ReactPlayer
 import ReactPlayer from "react-player";
+// Imported Component from React Bootstrap
 import { Carousel, CardColumns, Card } from "react-bootstrap";
 
 export class Content extends React.Component {
@@ -7,56 +9,62 @@ export class Content extends React.Component {
     return (
       <center>
         <div class="title">
-          <h1>Formula 1</h1>
-          <h3>
+          <img
+          alt=""
+          src="https://logodownload.org/wp-content/uploads/2016/11/formula-1-logo-7.png"
+          width="400"
+          height="100"
+                /><h1>{"Formula 1 "}
+                </h1>
+          <h2>
             A tribute application made in react dedicated to one of the finest
             sports in the world
-          </h3>
+          </h2>
         </div>
         <div class="carobg">
-          <Carousel style={{ width: "55%" }}>
-            <Carousel.Item interval={1000} style={{ width: "100%" }}>
+          <Carousel style={{ width: "55%"}}>
+            <Carousel.Item interval={1000} >
               <img
                 className="d-block w-100"
                 src="https://cdn1.formulaspy.com/v3/wp-content/uploads/2019/07/28160223/2455LB1D5131.jpg"
                 alt="First slide"
               />
               <Carousel.Caption>
-                <div class="textbg">
+              
                   <h3>Watch it from Start to finish</h3>
                   <p>See the lights go out and the flag drop</p>
-                </div>
+               
               </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item interval={500} style={{ width: "100%" }}>
+            <Carousel.Item interval={500}>
               <img
                 className="d-block w-100"
-                src="https://motorsport-magazine.s3.eu-west-1.amazonaws.com/wp-content/uploads/2019/09/24161403/monza_podium.jpg"
-                alt="Third slide"
+                src="https://thelateapex.net/wp-content/uploads/2019/09/Monza-podium-2019-1024x683.jpg"
+                alt="Second slide"
               />
               <Carousel.Caption>
-                <div class="textbg">
+             
                   <h3>Taste The Champagne</h3>
                   <p>
                     Get up close and personal with the worlds finest drivers
                   </p>
-                </div>
+                
               </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item interval={0} style={{ width: "100%" }}>
+            <Carousel.Item interval={0}>
               <img
                 className="d-block w-100"
                 src="https://thelagostoday.com/wp-content/uploads/2020/11/lew-1-1024x683.jpg"
                 alt="Third slide"
               />
               <Carousel.Caption>
-                <div class="textbg">
+          
                   <h3>Feel It All</h3>
                   <p>
-                    Feel the speed, hear the sounds and experience the best
-                    sport on this earth.
+                    Feel the speed, hear the sounds, feel the glory and experience the best
+                    sport on earth.
                   </p>
-                </div>
+               
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
@@ -76,7 +84,7 @@ export class Content extends React.Component {
         url="https://www.youtube.com/watch?v=rboKp0xZ5kQ&ab_channel=DaveEdwards" 
         controls={true}
         width="90%"
-    />
+    /><br></br>
    </div>
   
         <br></br>

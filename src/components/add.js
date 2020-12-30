@@ -1,5 +1,7 @@
 import React from "react";
+// Imported Component from React Bootstrap
 import {CardDeck, Card } from 'react-bootstrap';
+// Imported Link from Router
 import {Link} from 'react-router-dom';
 
 export class Add extends React.Component {

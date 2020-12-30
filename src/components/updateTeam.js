@@ -10,6 +10,7 @@ export class UpdateTeam extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.onChangeTeam = this.onChangeTeam.bind(this);
     this.onChangeYear = this.onChangeYear.bind(this);
+    this.onChangeStarts = this.onChangeStarts.bind(this);
     this.onChangeWins = this.onChangeWins.bind(this);
     this.onChangeTitles = this.onChangeTitles.bind(this);
     this.onChangeLogo = this.onChangeLogo.bind(this);
@@ -18,6 +19,7 @@ export class UpdateTeam extends React.Component {
       strTeam: "",
       intFormedYear: "",
       strTeamBadge: "",
+      strStarts: "",
       strWins: "",
       strTitles: "",
     };
@@ -32,6 +34,7 @@ export class UpdateTeam extends React.Component {
             _id:response.data._id,
             strTeam:response.data.name,
             intFormedYear:response.data.year,
+            strStarts:response.data.starts,
             strWins:response.data.wins,
             strTitles:response.data.titles,
             strTeamBadge:response.data.logo
@@ -60,6 +63,12 @@ export class UpdateTeam extends React.Component {
     });
   }
 
+  onChangeStarts(t) {
+    this.setState({
+      strStarts: t.target.value,
+    });
+  }
+
   onChangeWins(t) {
     this.setState({
       strWins: t.target.value,
@@ -77,6 +86,7 @@ export class UpdateTeam extends React.Component {
     alert("Team: " + this.state.strTeam + " "
       + this.state.intFormedYear + " " +
       this.state.strTeamBadge + " " +
+      this.state.strStarts + " " +
       this.state.strWins + " " +
       this.state.strTitles);
 
@@ -84,6 +94,7 @@ export class UpdateTeam extends React.Component {
             name: this.state.strTeam,
             year: this.state.intFormedYear,
             logo: this.state.strTeamBadge,
+            starts: this.state.strStarts,
             wins: this.state.strWins,
             titles: this.state.strTitles,
             _id: this.state._id
@@ -99,7 +110,7 @@ export class UpdateTeam extends React.Component {
   render() {
     return (
       <center>
-      <div class="formStyle">
+      <div class="updateStyle">
         <h1>Update Team</h1>
       <div className="App">
         <form onSubmit={this.onSubmit}>
@@ -119,6 +130,15 @@ export class UpdateTeam extends React.Component {
               className="form-control"
               value={this.state.intFormedYear}
               onChange={this.onChangeYear}
+            ></input>
+          </div>
+          <div className="form-group">
+            <label>Starts: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.strStarts}
+              onChange={this.onChangeStarts}
             ></input>
           </div>
           <div className="form-group">
@@ -162,3 +182,11 @@ export class UpdateTeam extends React.Component {
     );
   }
 }
+
+/* Created the update team class which I made on the 23/12/20
+I added a border around it to make it look a lot mnore stylish 
+things availabe to update are the image, name, year fromed, race starts,
+wins and titles
+
+I also added an update race starts to the page so that it can give the user more information
+Date 30/12/20 */
