@@ -5,7 +5,7 @@ Welcome to my final year Data Representation And Quering Project!
 ## What is this?
 
 This is a Formula 1 tribute app where users can see, create update and delete teams and drivers. This is very useful as many teams and drivers either leave the sport or change to another team. This also helps with updating results race after race.
-More info is available on the app in the Wiki.
+More info is available on the app in the Wiki[https://github.com/Niallwalker/DataRep_Project/wiki].
 
 ### `npm start`
 
