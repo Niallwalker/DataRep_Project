@@ -4,7 +4,7 @@ import ReactPlayer from "react-player";
 // Imported Component from React Bootstrap
 import { Carousel, CardColumns, Card } from "react-bootstrap";
 
-export class Content extends React.Component {
+export class Home extends React.Component {
   render() {
     return (
       <center>

@@ -12,7 +12,7 @@ import { Add } from "./components/add";
 import { AddTeam } from "./components/addTeam";
 import { AddDriver } from "./components/addDriver";
 import { ViewTeams } from "./components/viewTeams";
-import { Content } from "./components/content";
+import { Home } from "./components/home";
 import { ViewDrivers } from "./components/viewDrivers";
 import { UpdateTeam } from "./components/updateTeam";
 import { UpdateDriver } from "./components/updateDriver";
@@ -35,7 +35,7 @@ class App extends Component {
                 Formula 1
               </Navbar.Brand>
               <Nav>
-                  <Nav.Link href="/">Home</Nav.Link>
+                  <Nav.Link href="/home">Home</Nav.Link>
                   <Nav.Link href="/viewTeams">Teams</Nav.Link>
                   <Nav.Link href="/viewDrivers">Drivers</Nav.Link>
                   <Nav.Link href="/add">Create</Nav.Link>
@@ -45,7 +45,7 @@ class App extends Component {
           <br></br>
 
           <Switch>
-            <Route path="/" component={Content} exact />
+            <Route path="/home" component={Home} exact />
             <Route path="/viewTeams" component={ViewTeams} exact />
             <Route path="/viewDrivers" component={ViewDrivers} exact />
             <Route path="/add" component={Add} exact />
@@ -62,6 +62,7 @@ class App extends Component {
 
 export default App;
 
+<img src={logo} className="App-logo" alt="logo" />;
 /*Clock added and simple H1 tag.
 App function changed to App class
 added rneder method to wrap return 
@@ -78,5 +79,7 @@ Date: 21/12/20*/
 Date: 22/12/20*/
 
 /*Added a video section underneath text and replaced add teams and drivers with just add for a simplier look  
-Date: 28/12/20*/
-<img src={logo} className="App-logo" alt="logo" />;
+Date: 28/12/20
+
+Renamed page to home so that it was easy to establish what it it
+31/12/20*/
