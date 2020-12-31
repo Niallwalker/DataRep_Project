@@ -35,7 +35,7 @@ class App extends Component {
                 Formula 1
               </Navbar.Brand>
               <Nav>
-                  <Nav.Link href="/home">Home</Nav.Link>
+                  <Nav.Link href="/">Home</Nav.Link>
                   <Nav.Link href="/viewTeams">Teams</Nav.Link>
                   <Nav.Link href="/viewDrivers">Drivers</Nav.Link>
                   <Nav.Link href="/add">Create</Nav.Link>
@@ -45,7 +45,7 @@ class App extends Component {
           <br></br>
 
           <Switch>
-            <Route path="/home" component={Home} exact />
+            <Route path="/" component={Home} exact />
             <Route path="/viewTeams" component={ViewTeams} exact />
             <Route path="/viewDrivers" component={ViewDrivers} exact />
             <Route path="/add" component={Add} exact />
